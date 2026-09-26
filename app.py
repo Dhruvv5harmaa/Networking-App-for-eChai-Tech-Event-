@@ -52,7 +52,7 @@ groq_client = Groq(
 # ============================================================
 
 st.set_page_config(
-    page_title="LinkedIn Profile Analyzer",
+    page_title="eChai Startup Demo Day",
     page_icon="🔎",
     layout="wide"
 )
@@ -642,12 +642,12 @@ def find_relevant_chunks(summary, k=20):
 # FRONTEND
 # ============================================================
 
-st.title("🔎 LinkedIn Profile Analyzer")
+st.title("Who should I talk to?")
 
-st.write(
-    "Enter a LinkedIn profile URL to extract the profile "
-    "and generate a networking-focused summary."
+st.markdown(
+    "Find the people at this event you should meet."
 )
+
 
 
 # ============================================================
@@ -665,7 +665,7 @@ linkedin_url = st.text_input(
 # ============================================================
 
 if st.button(
-    "🚀 Extract LinkedIn Profile",
+    "Extract my info.",
     type="primary"
 ):
 
@@ -774,7 +774,7 @@ if st.session_state.profile_data:
     with col1:
 
         if st.button(
-            "📄 View Full Extracted Profile",
+            "View Extracted Json",
             use_container_width=True
         ):
 
@@ -787,7 +787,7 @@ if st.session_state.profile_data:
     with col2:
 
         if st.button(
-            "✨ Summarize for Networking",
+            "Summarize my LinkedIn",
             type="primary",
             use_container_width=True
         ):
@@ -826,7 +826,7 @@ if (
     st.divider()
 
     st.subheader(
-        "📄 Cleaned Extracted Profile"
+        "Cleaned Extracted Profile"
     )
 
     st.json(
@@ -843,7 +843,7 @@ if st.session_state.summary:
     st.divider()
 
     st.subheader(
-        "✨ Networking Summary"
+        "My Summary based on LinkedIn" 
     )
 
     st.markdown(
@@ -853,7 +853,7 @@ if st.session_state.summary:
     st.divider()
 
     if st.button(
-        "🔎 Find Relevant People",
+        "Find My Matches",
         type="primary",
         use_container_width=True
     ):
@@ -881,7 +881,7 @@ if st.session_state.summary:
             if len(unique_results) == 5:
                 break 
         st.subheader(
-            "🎯 Relevant Networking Opportunities"
+            "People you should should talk to"
         )
 
         for i, doc in enumerate(unique_results, start=1):
